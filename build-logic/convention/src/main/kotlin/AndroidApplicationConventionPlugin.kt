@@ -22,8 +22,8 @@ class AndroidApplicationConventionPlugin: Plugin<Project> {
 
 private fun ApplicationExtension.configureDefaultConfig() {
     defaultConfig {
-        applicationId = "com.sample.gradleplugins"
-        targetSdk = 34
+        applicationId = "com.example.movieexplorer"
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 

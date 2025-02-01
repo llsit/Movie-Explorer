@@ -20,5 +20,8 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Movie Explorer"
+rootProject.name = "Movie-Explorer"
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
+include(":core:common")
+include(":feature:home")
