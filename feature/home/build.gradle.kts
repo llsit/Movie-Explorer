@@ -7,3 +7,7 @@ plugins {
 android {
     namespace = "com.example.feature.home"
 }
+
+dependencies {
+    implementation(projects.core.design)
+}
