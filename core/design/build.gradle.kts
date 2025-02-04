@@ -8,5 +8,6 @@ android {
 }
 
 dependencies {
-
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network)
 }

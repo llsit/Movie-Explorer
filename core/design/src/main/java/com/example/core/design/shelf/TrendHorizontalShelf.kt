@@ -3,6 +3,7 @@ package com.example.core.design.shelf
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -36,11 +37,18 @@ fun TrendShelf(modifier: Modifier = Modifier) {
             rating = 4.0f,
             popularity = 4,
             genre = "Cartoon"
+        ),
+        MovieTrend(
+            title = "movie4",
+            rating = 4.0f,
+            popularity = 4,
+            genre = "Cartoon"
         )
     )
     Row(
         modifier = modifier
-            .horizontalScroll(rememberScrollState()),
+            .horizontalScroll(rememberScrollState())
+            .padding(horizontal = 16.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         movieTendList.forEach { movie ->

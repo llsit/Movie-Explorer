@@ -1,6 +1,5 @@
 package com.example.core.design.shelf
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsDraggedAsState
@@ -27,7 +26,6 @@ import androidx.compose.ui.unit.dp
 import com.example.core.design.component.HorizontalContentPager
 import kotlinx.coroutines.delay
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun AutoHorizontalContentPager(modifier: Modifier = Modifier) {
 
@@ -77,7 +75,7 @@ fun PagerIndicator(pageCount: Int, currentPageIndex: Int, modifier: Modifier = M
                         .padding(2.dp)
                         .clip(CircleShape)
                         .background(color)
-                        .size(16.dp)
+                        .size(8.dp)
                 )
             }
         }

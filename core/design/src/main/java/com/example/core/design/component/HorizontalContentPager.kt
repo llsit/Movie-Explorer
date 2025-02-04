@@ -1,6 +1,5 @@
 package com.example.core.design.component
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,29 +18,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HorizontalContentPager(pagerState: PagerState, colorList: List<Color>) {
-    val padding = when (pagerState.currentPage) {
-        0 -> {
-            PaddingValues(start = 0.dp, end = 64.dp)
-        }
-
-        pagerState.pageCount - 1 -> {
-            PaddingValues(start = 64.dp, end = 0.dp)
-        }
-
-        else -> {
-            PaddingValues(start = 64.dp, end = 64.dp)
-        }
-    }
     HorizontalPager(
         state = pagerState,
-        contentPadding = padding
+        contentPadding = PaddingValues(start = 64.dp, end = 64.dp)
     ) { page ->
         Card(
             Modifier
-                .height(200.dp)
+                .height(400.dp)
                 .fillMaxWidth()
                 .padding(8.dp)
         ) {

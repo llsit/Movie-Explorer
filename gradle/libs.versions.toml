@@ -14,6 +14,7 @@ hiltVersion = "2.51.1"
 ksp = "2.0.21-1.0.27"
 appcompat = "1.7.0"
 material = "1.12.0"
+coil = "3.0.4"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -30,6 +31,9 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
+coil-network = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil" }
+
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -43,7 +47,7 @@ material = { group = "com.google.android.material", name = "material", version.r
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-kotlin-compose-compiler  = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 hilt-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hiltVersion" }
 ksp-gradlePlugin = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
@@ -52,5 +56,5 @@ common-android-library-compose = { id = "gradlePlugins.android.library.compose",
 common-android-application-compose = { id = "gradlePlugins.android.application.compose", version = "unspecified" }
 common-android-application = { id = "gradlePlugins.android.application", version = "unspecified" }
 common-android-library = { id = "gradlePlugins.android.library", version = "unspecified" }
-common-android-hilt = { id = "gradlePlugins.android.hilt", version = "unspecified"}
+common-android-hilt = { id = "gradlePlugins.android.hilt", version = "unspecified" }
 

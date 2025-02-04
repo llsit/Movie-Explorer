@@ -1,26 +1,18 @@
 package com.example.core.design.component
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material3.Shapes
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import kotlin.math.roundToInt
+import coil3.compose.AsyncImage
 
 @Composable
 fun MovieTrendCard(
@@ -29,55 +21,20 @@ fun MovieTrendCard(
 ) {
     Card(
         modifier = Modifier
-            .width(150.dp)
+            .aspectRatio(ratio = 9f / 16f)
             .defaultMinSize(minHeight = 100.dp),
+        shape = CardDefaults.shape,
         onClick = onClick,
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
-        Row(
-            modifier = Modifier
-                .padding(16.dp)
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Column(
-                modifier = Modifier
-            ) {
-                Text(
-                    text = movie.title,
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold
-                )
-                Spacer(modifier = Modifier.height(4.dp))
-                Text(
-                    text = movie.genre,
-                    fontSize = 14.sp,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-                Spacer(modifier = Modifier.height(8.dp))
-                Row(
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-//                    RatingBar(rating = movie.rating)
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text(
-                        text = "${(movie.rating * 10).roundToInt() / 10f}",
-                        fontSize = 14.sp,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
-            }
+        AsyncImage(
+            modifier = Modifier.aspectRatio(ratio = 9f / 16f),
+            model = Color.Red,
+            contentDescription = "Translated description of what the image contains",
+            contentScale = ContentScale.Fit,
+            onError = { }
+        )
 
-            Column(
-                horizontalAlignment = Alignment.End
-            ) {
-//                TrendIndicator(
-//                    direction = movie.trendDirection,
-//                    popularity = movie.popularity
-//                )
-            }
-        }
     }
 }
 
