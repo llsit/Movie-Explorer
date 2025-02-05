@@ -1,61 +1,42 @@
 package com.example.core.design.shelf
 
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.core.design.component.MovieTrend
+import com.example.core.design.component.MovieItem
 import com.example.core.design.component.MovieTrendCard
+import com.example.core.design.component.TitleShelf
 
 @Composable
-fun TrendShelf(modifier: Modifier = Modifier) {
-    val movieTendList = listOf(
-        MovieTrend(
-            title = "movie1",
-            rating = 1.0f,
-            popularity = 1,
-            genre = "Cartoon"
-        ),
-        MovieTrend(
-            title = "movie2",
-            rating = 2.0f,
-            popularity = 2,
-            genre = "Cartoon"
-        ),
-        MovieTrend(
-            title = "movie3",
-            rating = 3.0f,
-            popularity = 3,
-            genre = "Cartoon"
-        ),
-        MovieTrend(
-            title = "movie4",
-            rating = 4.0f,
-            popularity = 4,
-            genre = "Cartoon"
-        ),
-        MovieTrend(
-            title = "movie4",
-            rating = 4.0f,
-            popularity = 4,
-            genre = "Cartoon"
-        )
+fun TrendHorizontalShelf(modifier: Modifier = Modifier) {
+    val movies = listOf(
+        MovieItem("Avatar: The Way Of Water", "3h 12m"),
+        MovieItem("Glass Onion: A Knives Out", "3h 12m"),
+        MovieItem("The School for Good and Evil", "3h 12m")
     )
-    Row(
-        modifier = modifier
-            .horizontalScroll(rememberScrollState())
-            .padding(horizontal = 16.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        movieTendList.forEach { movie ->
-            MovieTrendCard(
-                movie = movie,
-                onClick = {}
-            )
+
+    Column(modifier = modifier) {
+        TitleShelf(title = "Latest Movies") { }
+
+        LazyRow(
+            contentPadding = PaddingValues(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            items(movies) { movie ->
+                MovieTrendCard(movie)
+            }
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewTendComponent() {
+    TrendHorizontalShelf()
 }

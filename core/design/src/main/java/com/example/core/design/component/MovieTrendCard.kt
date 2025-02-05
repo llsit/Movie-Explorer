@@ -1,60 +1,63 @@
 package com.example.core.design.component
 
-import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Shapes
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
+import androidx.compose.ui.unit.sp
+
+data class MovieItem(
+    val title: String,
+    val duration: String
+)
 
 @Composable
-fun MovieTrendCard(
-    movie: MovieTrend,
-    onClick: () -> Unit
-) {
+fun MovieTrendCard(movie: MovieItem) {
     Card(
         modifier = Modifier
-            .aspectRatio(ratio = 9f / 16f)
-            .defaultMinSize(minHeight = 100.dp),
-        shape = CardDefaults.shape,
-        onClick = onClick,
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+            .width(180.dp)
+            .height(300.dp)
     ) {
-        AsyncImage(
-            modifier = Modifier.aspectRatio(ratio = 9f / 16f),
-            model = Color.Red,
-            contentDescription = "Translated description of what the image contains",
-            contentScale = ContentScale.Fit,
-            onError = { }
-        )
+        Column {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(250.dp)
+                    .background(Color.Gray)
+            )
 
+            Text(
+                text = movie.title,
+                modifier = Modifier.padding(8.dp),
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Medium
+            )
+
+            Text(
+                text = movie.duration,
+                modifier = Modifier.padding(horizontal = 8.dp),
+                fontSize = 14.sp,
+                color = Color.Gray
+            )
+        }
     }
 }
 
-data class MovieTrend(
-    val title: String,
-    val rating: Float,
-    val popularity: Int,
-    val genre: String
-)
-
-@Preview(showBackground = true, showSystemUi = true)
+@Preview(showBackground = true)
 @Composable
 fun PreviewTendComponent() {
     MovieTrendCard(
-        movie = MovieTrend(
-            title = "movie4",
-            rating = 4.0f,
-            popularity = 4,
-            genre = "Cartoon"
-        ),
-        {}
+        MovieItem("Avatar: The Way Of Water", "3h 12m"),
     )
 }
