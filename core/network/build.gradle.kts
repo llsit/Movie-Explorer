@@ -6,3 +6,9 @@ plugins {
 android {
     namespace = "com.example.core.network"
 }
+
+dependencies {
+    implementation(libs.retrofit)
+    api(libs.moshi)
+    implementation(libs.retrofit.moshi)
+}
