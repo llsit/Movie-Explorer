@@ -5,6 +5,8 @@ plugins {
 dependencies {
     compileOnly(libs.android.gradlePlugin)
     compileOnly(libs.kotlin.gradlePlugin)
+    compileOnly(libs.compose.compiler.gradlePlugin)
+    compileOnly(libs.ksp.gradlePlugin)
 }
 
 gradlePlugin {
@@ -28,6 +30,14 @@ gradlePlugin {
         register("androidHiltConventionPlugin") {
             id = "gradlePlugins.android.hilt"
             implementationClass = "AndroidHiltConventionPlugin"
+        }
+        register("androidNetworkConventionPlugin") {
+            id = "gradlePlugins.android.network"
+            implementationClass = "AndroidNetworkConventionPlugin"
+        }
+        register("androidFeatureConventionPlugin") {
+            id = "gradlePlugins.android.feature"
+            implementationClass = "AndroidFeatureConventionPlugin"
         }
     }
 }

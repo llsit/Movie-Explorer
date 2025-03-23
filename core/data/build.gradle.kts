@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.common.android.library)
     alias(libs.plugins.common.android.hilt)
+    alias(libs.plugins.common.android.network)
 }
 
 android {
@@ -10,6 +11,7 @@ android {
 dependencies {
 
     implementation(projects.core.network)
+    api(projects.core.common)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

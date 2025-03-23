@@ -22,7 +22,7 @@ android {
 dependencies {
 
     implementation(projects.core.data)
-
+    implementation(projects.core.design)
     implementation(projects.feature.home)
 
     testImplementation(libs.junit)
