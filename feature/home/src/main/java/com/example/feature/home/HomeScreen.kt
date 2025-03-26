@@ -11,12 +11,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.core.design.shelf.AutoHorizontalContentPager
 import com.example.core.design.shelf.TopRatedMoviesShelf
 import com.example.core.design.shelf.TrendHorizontalShelf
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(modifier: Modifier = Modifier, homeViewModel: HomeViewModel = hiltViewModel()) {
+
     Scaffold(
         modifier = modifier
             .fillMaxWidth()

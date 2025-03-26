@@ -9,5 +9,5 @@ android {
 }
 
 dependencies {
-    api(libs.moshi)
+    api(projects.core.model)
 }

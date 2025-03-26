@@ -10,6 +10,7 @@ class AndroidNetworkConventionPlugin : Plugin<Project> {
                 add("implementation", libs.findLibrary("retrofit").get())
                 add("implementation", libs.findLibrary("retrofit.moshi").get())
                 add("api", libs.findLibrary("moshi").get())
+                add("ksp", libs.findLibrary("moshi.codegen").get())
             }
         }
     }

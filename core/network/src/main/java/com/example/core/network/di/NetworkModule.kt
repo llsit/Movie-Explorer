@@ -26,7 +26,7 @@ object NetworkModule {
                 val request = chain.request().newBuilder()
                     .addHeader(
                         "Authorization",
-                        "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MzUzNWM1NjZhZmM4MGY4NjMwNDZkYWQzNzlkYWQ0ZiIsIm5iZiI6MTc0MTA5MDgwOS40ODk5OTk4LCJzdWIiOiI2N2M2ZWZmOTA5Y2U0ZjM1MTQ5MDg1YTMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.TboK_-m1PWq30W9xTKp0XX91Ti2hDAX0GKIcSa-n1Z0"
+                        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MzUzNWM1NjZhZmM4MGY4NjMwNDZkYWQzNzlkYWQ0ZiIsIm5iZiI6MTc0MTA5MDgwOS40ODk5OTk4LCJzdWIiOiI2N2M2ZWZmOTA5Y2U0ZjM1MTQ5MDg1YTMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.TboK_-m1PWq30W9xTKp0XX91Ti2hDAX0GKIcSa-n1Z0"
                     )
                     .addHeader("Content-Type", "application/json")
                     .build()
