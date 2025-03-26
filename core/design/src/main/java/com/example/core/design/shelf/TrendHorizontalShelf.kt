@@ -9,18 +9,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.core.design.component.MovieItem
 import com.example.core.design.component.MovieTrendCard
 import com.example.core.design.component.TitleShelf
+import com.example.core.model.model.ShelfItem
 
 @Composable
-fun TrendHorizontalShelf(modifier: Modifier = Modifier) {
-    val movies = listOf(
-        MovieItem("Avatar: The Way Of Water", "3h 12m"),
-        MovieItem("Glass Onion: A Knives Out", "3h 12m"),
-        MovieItem("The School for Good and Evil", "3h 12m")
-    )
-
+fun TrendHorizontalShelf(modifier: Modifier = Modifier, items: List<ShelfItem>) {
     Column(modifier = modifier) {
         TitleShelf(title = "Latest Movies") { }
 
@@ -28,7 +22,7 @@ fun TrendHorizontalShelf(modifier: Modifier = Modifier) {
             contentPadding = PaddingValues(horizontal = 16.dp),
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            items(movies) { movie ->
+            items(items) { movie ->
                 MovieTrendCard(movie)
             }
         }
@@ -38,5 +32,5 @@ fun TrendHorizontalShelf(modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun PreviewTendComponent() {
-    TrendHorizontalShelf()
+    TrendHorizontalShelf(items = emptyList())
 }

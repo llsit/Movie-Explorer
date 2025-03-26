@@ -14,17 +14,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
-data class MovieItem(
-    val title: String,
-    val duration: String
-)
+import com.example.core.model.model.ShelfItem
 
 @Composable
-fun MovieTrendCard(movie: MovieItem) {
+fun MovieTrendCard(movie: ShelfItem) {
     Card(
         modifier = Modifier
             .width(180.dp)
@@ -47,7 +42,7 @@ fun MovieTrendCard(movie: MovieItem) {
             )
 
             Text(
-                text = movie.duration,
+                text = movie.overview,
                 modifier = Modifier.padding(horizontal = 8.dp),
                 fontSize = 14.sp,
                 color = Color.Gray,
@@ -57,10 +52,3 @@ fun MovieTrendCard(movie: MovieItem) {
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun PreviewTendComponent() {
-    MovieTrendCard(
-        MovieItem("Avatar: The Way Of Water", "3h 12m"),
-    )
-}
