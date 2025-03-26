@@ -24,16 +24,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.core.design.component.HorizontalContentPager
+import com.example.core.model.model.ShelfItem
 import kotlinx.coroutines.delay
 
 @Composable
-fun AutoHorizontalContentPager(modifier: Modifier = Modifier) {
+fun AutoHorizontalContentPager(modifier: Modifier = Modifier, title: String, items: List<ShelfItem>) {
 
     Column(modifier = modifier.fillMaxWidth()) {
-        val colorList = listOf(
-            Color.Red, Color.Blue, Color.Cyan, Color.Yellow
-        )
-        val pagerState = rememberPagerState(pageCount = { colorList.size })
+        val pagerState = rememberPagerState(pageCount = { items.size })
         val pagerIsDragged by pagerState.interactionSource.collectIsDraggedAsState()
 
         val pageInteractionSource = remember { MutableInteractionSource() }
@@ -45,15 +43,15 @@ fun AutoHorizontalContentPager(modifier: Modifier = Modifier) {
             LaunchedEffect(pagerState, pageInteractionSource) {
                 while (true) {
                     delay(2000)
-                    val nextPage = (pagerState.currentPage + 1) % colorList.size
+                    val nextPage = (pagerState.currentPage + 1) % items.size
                     pagerState.animateScrollToPage(nextPage)
                 }
             }
         }
 
-        HorizontalContentPager(pagerState, colorList)
+        HorizontalContentPager(pagerState, items)
 
-        PagerIndicator(colorList.size, pagerState.currentPage)
+        PagerIndicator(items.size, pagerState.currentPage)
     }
 }
 

@@ -44,16 +44,23 @@ fun HomeScreen(modifier: Modifier = Modifier, homeViewModel: HomeViewModel = hil
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .wrapContentHeight(),
-                            shelf.items
+                            title = shelf.titleShelf,
+                            items = shelf.items
                         )
                     }
 
                     ShelfType.TopRate -> {
-                        TopRatedMoviesShelf()
+                        TopRatedMoviesShelf(
+                            title = shelf.titleShelf,
+                            items = shelf.items
+                        )
                     }
 
                     ShelfType.Upcoming -> {
-                        AutoHorizontalContentPager()
+                        AutoHorizontalContentPager(
+                            title = shelf.titleShelf,
+                            items = shelf.items
+                        )
                     }
                 }
             }

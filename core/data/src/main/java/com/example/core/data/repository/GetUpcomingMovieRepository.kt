@@ -7,15 +7,15 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-interface GetPopularMovieRepository {
-    fun fetchPopular(): Flow<Result<MovieResponse>>
+interface GetUpcomingMovieRepository {
+    fun fetchUpcoming(): Flow<Result<MovieResponse>>
 }
 
-class GetPopularMovieRepositoryImpl @Inject constructor(
+class GetUpcomingMovieRepositoryImpl @Inject constructor(
     private val apiService: ApiService
-) : GetPopularMovieRepository {
-    override fun fetchPopular(): Flow<Result<MovieResponse>> = flow {
-        val response = apiService.fetchPopular()
+) : GetUpcomingMovieRepository {
+    override fun fetchUpcoming(): Flow<Result<MovieResponse>> = flow {
+        val response = apiService.fetchUpcoming()
         try {
             if (response.isSuccessful) {
                 response.body()?.let {

@@ -3,7 +3,11 @@ package com.example.core.data.di
 import com.example.core.data.repository.GetMovieGenreRepository
 import com.example.core.data.repository.GetMovieGenreRepositoryImpl
 import com.example.core.data.repository.GetPopularMovieRepository
-import com.example.core.data.repository.GetPopularMovieRepositoryImp
+import com.example.core.data.repository.GetPopularMovieRepositoryImpl
+import com.example.core.data.repository.GetTopRatedMovieRepository
+import com.example.core.data.repository.GetTopRatedMovieRepositoryImpl
+import com.example.core.data.repository.GetUpcomingMovieRepository
+import com.example.core.data.repository.GetUpcomingMovieRepositoryImpl
 import com.example.core.network.service.ApiService
 import dagger.Module
 import dagger.Provides
@@ -25,5 +29,17 @@ object DataModule {
     @Singleton
     fun provideGetPopularMovieRepository(
         apiService: ApiService
-    ): GetPopularMovieRepository = GetPopularMovieRepositoryImp(apiService)
+    ): GetPopularMovieRepository = GetPopularMovieRepositoryImpl(apiService)
+
+    @Provides
+    @Singleton
+    fun provideGetTopRatedMovieRepository(
+        apiService: ApiService
+    ): GetTopRatedMovieRepository = GetTopRatedMovieRepositoryImpl(apiService)
+
+    @Provides
+    @Singleton
+    fun provideGetUpcomingMovieRepository(
+        apiService: ApiService
+    ): GetUpcomingMovieRepository = GetUpcomingMovieRepositoryImpl(apiService)
 }

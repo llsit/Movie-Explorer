@@ -14,9 +14,9 @@ import com.example.core.design.component.TitleShelf
 import com.example.core.model.model.ShelfItem
 
 @Composable
-fun TrendHorizontalShelf(modifier: Modifier = Modifier, items: List<ShelfItem>) {
+fun TrendHorizontalShelf(modifier: Modifier = Modifier, title: String, items: List<ShelfItem>) {
     Column(modifier = modifier) {
-        TitleShelf(title = "Latest Movies") { }
+        TitleShelf(title = title) { }
 
         LazyRow(
             contentPadding = PaddingValues(horizontal = 16.dp),
@@ -32,5 +32,5 @@ fun TrendHorizontalShelf(modifier: Modifier = Modifier, items: List<ShelfItem>) 
 @Preview(showBackground = true)
 @Composable
 fun PreviewTendComponent() {
-    TrendHorizontalShelf(items = emptyList())
+    TrendHorizontalShelf(items = emptyList(), title = "")
 }

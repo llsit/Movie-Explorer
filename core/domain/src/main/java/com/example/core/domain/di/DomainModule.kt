@@ -1,6 +1,8 @@
 package com.example.core.domain.di
 
 import com.example.core.data.repository.GetPopularMovieRepository
+import com.example.core.data.repository.GetTopRatedMovieRepository
+import com.example.core.data.repository.GetUpcomingMovieRepository
 import com.example.core.domain.usecase.GetHomeShelfUseCase
 import com.example.core.domain.usecase.GetHomeShelfUseCaseImp
 import dagger.Module
@@ -16,7 +18,13 @@ object DomainModule {
     @Provides
     @Singleton
     fun provideGetHomeShelfUseCase(
-        getPopularMovieRepository: GetPopularMovieRepository
-    ): GetHomeShelfUseCase = GetHomeShelfUseCaseImp(getPopularMovieRepository)
+        getPopularMovieRepository: GetPopularMovieRepository,
+        getTopRatedMovieRepository: GetTopRatedMovieRepository,
+        getUpcomingMovieRepository: GetUpcomingMovieRepository
+    ): GetHomeShelfUseCase = GetHomeShelfUseCaseImp(
+        getPopularMovieRepository,
+        getTopRatedMovieRepository,
+        getUpcomingMovieRepository
+    )
 
 }

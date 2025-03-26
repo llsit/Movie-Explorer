@@ -1,8 +1,6 @@
 package com.example.core.design.component
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,25 +12,28 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.core.design.shelf.TopRatedMovie
+import coil3.compose.AsyncImage
+import com.example.core.model.model.ShelfItem
 
 @Composable
-fun TopRatedMovieCard(movie: TopRatedMovie) {
+fun TopRatedMovieCard(movie: ShelfItem) {
     Card(
         modifier = Modifier
             .width(300.dp)
             .height(210.dp)
     ) {
         Column {
-            Box(
+            AsyncImage(
+                model = movie.posterPath,
+                contentScale = ContentScale.Crop,
+                contentDescription = "",
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(150.dp)
-                    .background(Color.Gray)
             )
 
             Row(
@@ -49,37 +50,24 @@ fun TopRatedMovieCard(movie: TopRatedMovie) {
                     )
                     Row {
                         Text(
-                            text = movie.status,
+                            text = movie.releaseDate,
                             fontSize = 14.sp,
                             color = Color.Gray,
                             modifier = Modifier.padding(end = 8.dp)
                         )
                         Text(
-                            text = movie.genre,
+                            text = movie.genreIds.toString(),
                             fontSize = 14.sp,
                             color = Color.Gray
                         )
                     }
                 }
                 Text(
-                    text = movie.duration,
+                    text = movie.popularity.toString(),
                     fontSize = 14.sp,
                     color = Color.Gray
                 )
             }
         }
     }
-}
-
-@Composable
-@Preview
-fun TopRatedMovieCardPreview() {
-    TopRatedMovieCard(
-        TopRatedMovie(
-            title = "movie",
-            status = "status",
-            genre = "",
-            duration = "2h"
-        )
-    )
 }

@@ -2,6 +2,7 @@ package com.example.core.model.model
 
 data class Shelf(
     val type: ShelfType,
+    val titleShelf: String,
     val items: List<ShelfItem>
 )
 

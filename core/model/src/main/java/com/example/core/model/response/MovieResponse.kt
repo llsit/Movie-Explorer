@@ -4,7 +4,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class PopularMovieResponse(
+data class MovieResponse(
     @Json(name = "page") val page: Long,
     @Json(name = "results") val results: List<Result>,
     @Json(name = "total_pages") val totalPages: Long,
